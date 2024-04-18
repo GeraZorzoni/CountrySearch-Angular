@@ -6,6 +6,7 @@
     <!-- SearchBox -->
     <shared-search-box
       (onValue)="searchByCapital($event)"
+      (onDebounce)="searchByCapital($event)"
       placeholder="Buscar por capital"
     ></shared-search-box>
   </div>
@@ -19,6 +20,9 @@
         {{ country.capital }} - {{ country.population }}
       </li>
     </ul> -->
+
+    <shared-loading-spinner *ngIf="isLoading"></shared-loading-spinner>
+
     <countries-table [countries]="countries"></countries-table>
   </div>
 </div>
